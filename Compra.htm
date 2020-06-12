@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Compra</title>
+<script>
+function calculo(cantidad,precio,inputtext,totaltext){
+/* Parametros:
+cantidad - entero con la cantidad
+precio - entero con el precio
+inputtotal - nombre del elemento del formulario donde ira el total
+*/
+//Actualizar el total
+// Utilizamos el eval. Ya que el valor es un texto y si lo tratamos como tal
+// es como si estuviesemos manipulando una cadena.
+subtotal = precio*cantidad;
+inputtext.value=subtotal;
+total = eval(totaltext.value);
+totaltext.value = total + subtotal;
+}
+</script>
+<body bgcolor="gray">
+<IMG SRC= "Img/Logo expofrut.jpg", keigth:"150", width="150"><font size="20" color="white" face="Arial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; EXPOFRUT <small><font size="6"  color="white">COMPRA<br></br></font></small></font></center>
+<br></br><form action="/php/insertar_Datos.php" method="post" enctype="multipart/formdata >
+<br><i>Nombre  Cliente: <input type="text" name="nombre" value=" " size="23" maxlength="25"/>
+Nombre Completo Cliente: <input type="text" name="nombre" value=" " size="23" maxlength="35"/>
+Numero De Contacto Cliente: <input type="num" number="numero" value=" " size="15" maxlength="12"/></br></br></i>
+<br><center><table border="1" width=70% height=400></br>
+<tr>
+<td>Cajas:</td>
+<td>Precio</td>
+<td>Cantidad</td>
+<td>Total</td>
+</tr>
+<tr>
+<td>Fresa 10 kg.</td>
+<td><input type="hidden" id="preciofresa" value="230"/> $230</td>
+<td><input type="text" size="3" id="fresa" value="0" onChange="calculo(this.value,preciofresa.value,totalfresa,total);"></td>
+<td><input type="text" size="8" id="totalfresa" value="$"></td>
+</tr>
+<tr>
+<td>Mango 20 kg.</td>
+<td><input type="hidden" id="preciomango" value="360"/>$360</td>
+<td><input type="text" size="3" id="mango" value="0" onChange="calculo(this.value,preciomango.value,totalmango,total);"></td>
+<td><input type="text" size="8" id="totalmango" value="$"></td>
+</tr>
+<tr>
+<td>Frambuesa 10 kg.</td>
+<td><input type="hidden" id="precioframbuesa" value="290"/>$290</td>
+<td><input type="text" size="3" id="frambuesa" value="0" onChange="calculo(this.value,precioframbuesa.value,totalframbuesa,total);"></td>
+<td><input type="text" size="8" id="totalframbuesa" value="$"></td>
+</tr>
+<tr>
+<td>Uva 8 kg.</td>
+<td><input type="hidden" id="preciouva" value="400"/>$400</td>
+<td><input type="text" size="3" id="uva" value="0" onChange="calculo(this.value,preciouva.value,totaluva,total);"></td>
+<td><input type="text" size="8" id="totaluva" value="$"></td>
+</tr>
+<tr>
+<td>Platano 20 kg.</td>
+<td><input type="hidden" id="precioplatano" value="260"/>$260</td>
+<td><input type="text" size="3" id="platano" value="0" onChange="calculo(this.value,precioplatano.value,totalplatano,total);"></td>
+<td><input type="text" size="8" id="totalplatano" value="$"></td>
+</tr>
+<tr>
+<td>Total A Pagar:</td>
+<td colspan="3"><input type="text" size="8" id="total" value="0"></td>
+</tr>
+</table>
+</center>
+<br></br><center>
+<input type="submit" name="Enviar" value="Enviar Información">
+<input type="reset" name="Borrar" value="Borrar Informacion"></center> 
+<DL>
+<DT><b><font size="5" face="Arial">Menú</font></DT></b>
+<ol>
+<li><A href="index.htm">Pagina Principal
+<li><A href="Productos.htm">Productos
+<li><A href="Guía Exportador.htm">Guía Exportador
+</form>
+</body>
+</ol>   
+</html>
